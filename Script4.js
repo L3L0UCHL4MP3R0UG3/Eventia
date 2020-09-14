@@ -1,7 +1,7 @@
-document.querySelector('.img-btn').addEventListener('click', function()
-	{
-		document.querySelector('.cont').classList.toggle('s-signup')
-	}
+
+document.querySelector('.img-btn').addEventListener('click', function () {
+    document.querySelector('.cont').classList.toggle('s-signup')
+}
 );
 var firebaseConfig = {
     apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
@@ -18,17 +18,17 @@ var db = firebase.firestore();
 function upload() {
     const nameText = document.getElementById("name").value;
     const passText = document.getElementById("password").value;
-    const servtypText = document.getElementById("serv_typ").value;
     const mailphText = document.getElementById("mail_ph").value;
     const locationText = document.getElementById("location").value;
+    const addressText = document.getElementById("address").value;
 
-    db.collection("serv_user").add(
+    db.collection("vendor").add(
         {
             name: nameText,
             password: passText,
-            serv_type: servtypText,
             mail_ph: mailphText,
-            location: locationText
+            location: locationText,
+            address: addressText
         }).then(function (docRef) {
             console.log("Document written with ID : ", docRef.id);
             document.location.href = "homepagebasic.html";
@@ -42,7 +42,7 @@ function auth() {
     const mailPh = document.getElementById("loginid").value;
     const pass = document.getElementById("loginpass").value;
 
-    db.collection("serv_user").where('mail_ph', '==', mailPh).get()
+    db.collection("vendor").where('mail_ph', '==', mailPh).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 if (doc.data().password == pass) {

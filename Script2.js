@@ -1,7 +1,7 @@
-document.querySelector('.img-btn').addEventListener('click', function()
-	{
-		document.querySelector('.cont').classList.toggle('s-signup')
-	}
+// JavaScript source code
+document.querySelector('.img-btn').addEventListener('click', function () {
+    document.querySelector('.cont').classList.toggle('s-signup')
+}
 );
 var firebaseConfig = {
     apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
@@ -18,15 +18,13 @@ var db = firebase.firestore();
 function upload() {
     const nameText = document.getElementById("name").value;
     const passText = document.getElementById("password").value;
-    const servtypText = document.getElementById("serv_typ").value;
     const mailphText = document.getElementById("mail_ph").value;
     const locationText = document.getElementById("location").value;
 
-    db.collection("serv_user").add(
+    db.collection("customer").add(
         {
             name: nameText,
             password: passText,
-            serv_type: servtypText,
             mail_ph: mailphText,
             location: locationText
         }).then(function (docRef) {
@@ -42,7 +40,7 @@ function auth() {
     const mailPh = document.getElementById("loginid").value;
     const pass = document.getElementById("loginpass").value;
 
-    db.collection("serv_user").where('mail_ph', '==', mailPh).get()
+    db.collection("customer").where('mail_ph', '==', mailPh).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 if (doc.data().password == pass) {
