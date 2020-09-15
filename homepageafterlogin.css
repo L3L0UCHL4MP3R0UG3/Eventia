@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: poppins;
+    
+}
+header .carousel-inner .item{
+	height: 100vh;
+}
+.navbar-inverse{
+	background-color:  #B19CD9;
+	
+	border-color: transparent;
+}
+.navbar-inverse .navbar-brand{
+	color: #fff;
+
+	font-size: 40px;
+	padding:40px 15px;
+	font-weight: 900; 
+}
+.nav.navbar-nav.navbar-right{
+	margin: 25px 0;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:#fff;
+    background-color: black;
+    margin-right: 2px;
+	text-transform: uppercase;
+}
+#carousel-example-generic{
+    margin-top:0;
+}
+
+
+
+.item > img{
+	background-size: cover;
+	background-size: cover;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	height: 100vh;
+	
+}
+.carousel-caption{
+	padding-bottom: 100px;
+	font-family:poppins;
+}
+.carousel-caption h3{
+    font-size: 50px;
+    color: black;
+   background-color: #B19CD9;
+	
+	font-weight: bold;
+}
+.carousel-caption p{
+    color: white;
+    font-size: 30px;
+    background-color: #8032D9;
+}
+
+.carousel-caption a{
+	background: -webkit-linear-gradient(left,#B19CD9, #8B008B);
+	padding: 15px, 30px;
+	font-size: 25px;
+	display: inline-block;
+	margin-top: 15px;
+	color: #fff;
+    border-radius: 15px;
+}
+/*.carousel-control.right{
+	background-image: none;
+}
+.carousel-control.left{
+	background-image: none;
+}*/
+.carousel-indicators .active{
+	background-color: #8032D9;
+	border-color: #8032D9;
+
+}
+.block{
+    width: 100%;
+    height: 30%;
+    background-color:#B19CD9 ;
+    margin: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.block div{
+    font-size: 70px;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', sans-serif;
+    color: black;
+}
+
+
+
+.thumbnail .caption h3{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+
+}
+.thumbnail .caption p {
+    text-align: center;
+
+
+} .btn-default{
+    background-color: lightpink;
+}
+.btn-default:hover{
+    background-color: #B19CD9;
+}
+

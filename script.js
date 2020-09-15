@@ -31,7 +31,7 @@ function upload() {
             location: locationText
         }).then(function (docRef) {
             console.log("Document written with ID : ", docRef.id);
-            document.location.href = "homepagebasic.html";
+            document.location.href = "homepageafterlogin.html";
         })
         .catch(function (error) {
             console.log("ERROR : ", error);
@@ -46,7 +46,7 @@ function auth() {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 if (doc.data().password == pass) {
-                    document.location.href = "homepagebasic.html";
+                    document.location.href = "homepageafterlogin.html";
                 }
                 else
                     console.log("Incorrect credentials!");
