@@ -20,8 +20,10 @@ function upload() {
     const passText = document.getElementById("password").value;
     const mailphText = document.getElementById("mail_ph").value;
     const locationText = document.getElementById("location").value;
-
-    db.collection("customer").add(
+    if (nameText == "" || passText == "" || servtypText == "" || mailphText == "" || locationText == "")
+        alert("Please provide the required fields!!!");
+    else {
+        db.collection("customer").add(
         {
             name: nameText,
             password: passText,
@@ -29,29 +31,34 @@ function upload() {
             location: locationText
         }).then(function (docRef) {
             console.log("Document written with ID : ", docRef.id);
-            document.location.href = "homepageafterlogin.html";
+            document.location.href = "homepageafterlogin.html" + "?profile=" + nameText;
         })
         .catch(function (error) {
             console.log("ERROR : ", error);
         });
+    }
 }
 
 function auth() {
     const mailPh = document.getElementById("loginid").value;
     const pass = document.getElementById("loginpass").value;
-
-    db.collection("customer").where('mail_ph', '==', mailPh).get()
+    if (mailPh == "" || pass == "")
+        alert("Please provide the required fields!!!");
+    else {
+        db.collection("customer").where('mail_ph', '==', mailPh).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 if (doc.data().password == pass) {
-                    document.location.href = "homepageafterlogin.html";
+                    let name = doc.data().name;
+                    document.location.href = "homepageafterlogin.html" + "?profile=" + name;
                 }
                 else
-                    console.log("Incorrect credentials!");
+                    alert("Incorrect credentials!");
             });
         }).catch(function (error) {
             console.log("Error : ", error);
         });
+    }
 }
 function sleep(milliseconds) {
     const date = Date.now();

@@ -19,11 +19,11 @@
       <h2>Sign In</h2>
       <label>
         <span>Email /Phone</span>
-        <input type="email" name="email" id="loginid">
+        <input type="email" name="email" id="loginid" required>
       </label>
       <label>
         <span>Password</span>
-        <input type="password" name="password" id="loginpass">
+        <input type="password" name="password" id="loginpass" required>
       </label>
       <button class="submit" type="button" id="signin" onclick="auth()">Sign In</button>
       <p class="forgot-pass">Forgot Password ?</p>
@@ -57,28 +57,48 @@
           <h2>Sign Up</h2>
           <label>
               <span>Name</span>
-              <input type="text" id="name">
+              <input type="text" id="name" required maxlength="20">
           </label>
           <label>
               <span>Email or Phone no.</span>
-              <input type="email" id="mail_ph">
+              <input type="email" id="mail_ph" required >
           </label>
           <label>
               <span>Password</span>
-              <input type="password" id="password">
+              <input type="password" id="password" required>
           </label>
           <label>
-              <span>Service Type</span>
-              <input type="text" id="serv_typ">
+              <span>Service Type : </span>
+              <select id="serv_typ" required>
+                  <option value="Planner">Event Planner</option>
+                  <option value="Caterers">Caterers</option>
+                  <option value="Decorator">Decorator</option>
+                  <option value="Photographer">Photographer</option>
+              </select>
+              <input />
           </label>
           <label>
-              <span>Location</span>
-              <input type="text" id="location">
+              <span>Location : </span>
+              <select id="location" required>
+                  <option value="Delhi" >Delhi</option>
+                  <option value="Noida">Noida</option>
+                  <option value="Greater Noida">Greater Noida</option>
+                  <option value="Gaziabad">Gaziabad</option>
+                  <option value="Gurugram">Gurugram</option>
+                  <option value="Faridabad">Faridabad</option>
+              </select>
+              <input />
           </label>
           <button type="button" class="submit" id="signup" onclick="upload()">Sign Up Now</button>
       </div>
     </div>
   </div>
 <script type="text/javascript" src="script.js"></script>
+<script>
+    document.querySelector('.img-btn').addEventListener('click', function () {
+        document.querySelector('.cont').classList.toggle('s-signup')
+    }
+    );
+</script>
 </body>
 </html>
