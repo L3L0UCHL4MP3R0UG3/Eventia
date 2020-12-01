@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <title>Profile</title>
+</head>
+<body>
+    <h2>Profile</h2>
+    <h3 id="name">Name</h3>
+    <h3 id="con">Contact</h3>
+    <h3 id="loc">Location</h3>
+    
+    <button type="button" onclick=like() id="like">Like</button>
+    <button type="button" onclick=dislike() id="dlike">Dislike</button><br /><br />
+    <form>
+        <input type="text" id="review" />
+        <button type="button" onclick=postrev() id="post">Post</button>
+    </form>
+   <script src="profile.js">
+
+   </script>
+</body>
+</html>

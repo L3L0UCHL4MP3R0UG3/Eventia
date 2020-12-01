@@ -1,0 +1,80 @@
+﻿body {
+    background: -webkit-linear-gradient(left,#B19CD9, #8B008B);
+}
+.h1 {
+    font-family: "Montserrat", sans-serif
+}
+.w3-quarter img {
+    margin-bottom: -6px;
+    cursor: pointer
+}
+
+    .w3-quarter img:hover {
+        opacity: 0.6;
+        transition: 0.3s
+    }
+img {
+    margin-bottom: -7px;
+    cursor: pointer;
+    flex-wrap: wrap;
+    height: 650px;
+    vertical-align: middle;
+}
+    img:hover {
+        opacity: 0.6;
+        transition: 0.3s
+    }
+w3-row-padding img {
+    margin-bottom: 12px
+} 
+.w3-opacity {
+    
+    color: lavender;
+}
+
+
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    max-height:50%;
+    padding: 0 0px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    flex: 25%;
+    max-width: 100%;
+    
+    padding: 0 4px;
+}
+
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+        
+        cursor: pointer;
+    }
+        .column img:hover {
+    opacity: 0.6;
+    transition: 0.3s
+}
+    
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}

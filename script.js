@@ -30,8 +30,8 @@ function upload() {
                 mail_ph: mailphText,
                 location: locationText
             }).then(function (docRef) {
-                console.log("Document written with ID : ", docRef.id);
-                document.location.href = "homepageafterlogin.html" + "?profile=" + nameText;
+                let iD= docRef.id;
+                document.location.href = "homepageafterlogin.html" + "?profile=" + nameText+"&id="+iD;
 
             })
         .catch(function (error) {
@@ -51,9 +51,9 @@ function auth() {
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     if (doc.data().password == pass) {
-
+                        let iD = doc.id;
                         let name = doc.data().name;
-                        document.location.href = "homepageafterlogin.html" + "?profile=" + name;
+                        document.location.href = "homepageafterlogin.html" + "?profile=" + name + "&id=" + iD;
                     }
                     else
                         alert("Incorrect credentials!");

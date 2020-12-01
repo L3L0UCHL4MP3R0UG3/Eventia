@@ -9,6 +9,8 @@ var loc = queryString[2].split("=");
 var l = loc[1];
 var name2 = queryString[3].split("=");
 var n = name2[1];
+var id = queryString[4].split("=");
+var uid = id[1];
 
 document.getElementById("test").text = "Location : "+l;
 var firebaseConfig = {
@@ -30,7 +32,7 @@ typeChild.className = 'additional-text';
 typeChild.innerText = t;
 type.append(typeChild);
 document.body.appendChild(type);
-
+const userRef = []
 //---------------------------------------------------------------Retrieve venues--------------------------------------------------------------------------------
 function venfunc() {
     if (l != "all") {
@@ -39,8 +41,10 @@ function venfunc() {
                 var user = [];
                 querySnapshot.forEach(function (doc) {
                     user.push(doc.data());
+                    userRef.push(doc.id);
                 });
                 console.log(user);
+                console.log(userRef);
                 var i;
                 console.log(user.length);
                 if (user.length == 0) {
@@ -72,14 +76,24 @@ function venfunc() {
                         hi.innerText = user[i].mail_ph;
                         const ji = document.createElement('h3');
                         ji.innerText = user[i].ven_type;
-                       
                         const pi = document.createElement('h3');
                         pi.innerText = user[i].address;
+                        const btn = document.createElement('p');
+                        const btn2 = document.createElement('a');
+                        btn2.className = "btn btn-default";
+                        btn2.innerHTML = "View";
+                        const j = userRef[i];
+                        btn2.addEventListener("click", function () {
+                            console.log(i);
+                            console.log(j);
+                           profile(j, "venw_vendr");
+                        });
+                        btn.append(btn2);
                         cap.append(h);
                         cap.append(hi);
                         cap.append(ji);
-                        
                         cap.append(pi);
+                        cap.append(btn);
                         thum.append(img1);
                         thum.append(cap);
                         elem2.append(thum);
@@ -98,8 +112,10 @@ function venfunc() {
                 var user = [];
                 querySnapshot.forEach(function (doc) {
                     user.push(doc.data());
+                    userRef.push(doc.id);
                 });
                 console.log(user);
+                console.log(userRef);
                 var i;
                 console.log(user.length);
                 if (user.length == 0) {
@@ -131,14 +147,21 @@ function venfunc() {
                         hi.innerText = user[i].mail_ph;
                         const ji = document.createElement('h3');
                         ji.innerText = user[i].ven_type;
-                        
                         const pi = document.createElement('h3');
                         pi.innerText = user[i].address;
+                        const btn = document.createElement('p');
+                        const btn2 = document.createElement('a');
+                        btn2.className = "btn btn-default";
+                        btn2.innerHTML = "View";
+                        const j = userRef[i];
+                        btn2.addEventListener("click", function () { profile(j, "venw_vendr"); });
+                        btn.append(btn2);
                         cap.append(h);
                         cap.append(hi);
                         cap.append(ji);
                         
                         cap.append(pi);
+                        cap.append(btn);
                         thum.append(img1);
                         thum.append(cap);
                         elem2.append(thum);
@@ -160,8 +183,10 @@ function storfunc() {
                 var user = [];
                 querySnapshot.forEach(function (doc) {
                     user.push(doc.data());
+                    userRef.push(doc.id);
                 });
                 console.log(user);
+                console.log(userRef);
                 var i;
                 console.log(user.length);
                 if (user.length == 0) {
@@ -191,15 +216,19 @@ function storfunc() {
                         h.innerText = user[i].name;
                         const hi = document.createElement('h3');
                         hi.innerText = user[i].mail_ph;
-                        
-                       
                         const pi = document.createElement('h3');
                         pi.innerText = user[i].address;
+                        const btn = document.createElement('p');
+                        const btn2 = document.createElement('a');
+                        btn2.className = "btn btn-default";
+                        btn2.innerHTML = "View";
+                        const j = userRef[i];
+                        btn2.addEventListener("click", function () { profile(j, "vendor"); });
+                        btn.append(btn2);
                         cap.append(h);
                         cap.append(hi);
-                        
-                        
                         cap.append(pi);
+                        cap.append(btn);
                         thum.append(img1);
                         thum.append(cap);
                         elem2.append(thum);
@@ -218,8 +247,10 @@ function storfunc() {
                 var user = [];
                 querySnapshot.forEach(function (doc) {
                     user.push(doc.data());
+                    userRef.push(doc.id);
                 });
                 console.log(user);
+                console.log(userRef);
                 var i;
                 console.log(user.length);
                 if (user.length == 0) {
@@ -251,9 +282,17 @@ function storfunc() {
                         hi.innerText = user[i].mail_ph;
                         const pi = document.createElement('h3');
                         pi.innerText = user[i].address;
+                        const btn = document.createElement('p');
+                        const btn2 = document.createElement('a');
+                        btn2.className = "btn btn-default";
+                        btn2.innerHTML = "View";
+                        const j = userRef[i];
+                        btn2.addEventListener("click", function () { profile(j, "vendor"); });
+                        btn.append(btn2);
                         cap.append(h);
                         cap.append(hi);
                         cap.append(pi);
+                        cap.append(btn);
                         thum.append(img1);
                         thum.append(cap);
                         elem2.append(thum);
@@ -275,8 +314,10 @@ function func() {
                 var user = [];
                 querySnapshot.forEach(function (doc) {
                     user.push(doc.data());
+                    userRef.push(doc.id);
                 });
                 console.log(user);
+                console.log(userRef);
                 var i;
                 console.log(user.length);
                 if (user.length == 0) {
@@ -308,9 +349,19 @@ function func() {
                         hi.innerText = user[i].mail_ph;
                         const ji = document.createElement('h3');
                         ji.innerText = user[i].location;
+                        const btn = document.createElement('p');
+                        const btn2 = document.createElement('a');
+                        btn2.className = "btn btn-default";
+                        btn2.innerHTML = "View";
+                        const j = userRef[i];
+                        btn2.addEventListener("click", function () {
+                            document.location.href = "Portfolio.html" + "?name=" + n + "&id=" + j + "&type=" + "serv_user" + "&uid=" + uid;
+                        });
+                        btn.append(btn2);
                         cap.append(h);
                         cap.append(hi);
                         cap.append(ji);
+                        cap.append(btn);
                         thum.append(img1);
                         thum.append(cap);
                         elem2.append(thum);
@@ -329,8 +380,10 @@ function func() {
                 var user = [];
                 querySnapshot.forEach(function (doc) {
                     user.push(doc.data());
+                    userRef.push(doc.id);
                 });
                 console.log(user);
+                console.log(userRef);
                 var i;
                 console.log(user.length);
                 if (user.length == 0) {
@@ -362,9 +415,19 @@ function func() {
                         hi.innerText = user[i].mail_ph;
                         const ji = document.createElement('h3');
                         ji.innerText = user[i].location;
+                        const btn = document.createElement('p');
+                        const btn2 = document.createElement('a');
+                        btn2.className = "btn btn-default";
+                        btn2.innerHTML = "View";
+                        const j = userRef[i];
+                        btn2.addEventListener('click', function () {
+                            document.location.href = "Portfolio.html" + "?name=" + n + "&id=" + j + "&type=" + "serv_user" + "&uid=" + uid;
+                        });
+                        btn.append(btn2);
                         cap.append(h);
                         cap.append(hi);
                         cap.append(ji);
+                        cap.append(btn);
                         thum.append(img1);
                         thum.append(cap);
                         elem2.append(thum);
@@ -381,69 +444,73 @@ function func() {
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 function al() {
     l = "all";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n+"&id="+uid;
 }
 function dlh() {
     l = "Delhi";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n+"&id=" + uid;
 }
 function noida() {
     l = "Noida";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function far() {
     l = "Faridabad";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function gn() {
     l = "Greater Noida";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function gur() {
     l = "Gurugram";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function gaz() {
     l = "Gaziabad";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
     
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 function plan() {
     text = "Planner";
     t = "Event Planners";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l+ "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function deco() {
     text = "Decorator";
     t = "Decorators";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function cat() {
     text = "Caterer";
     t = "Caterers";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function photo() {
     text = "Photographer";
     t = "Photographers";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function venue() {
     text = "venue";
     t = "Venues";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function stor() {
     text = "store";
     t = "Stores";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function home() {
-    document.location.href = "homepageafterlogin.html" + "?profile=" + n;
+    document.location.href = "homepageafterlogin.html" + "?profile=" + n + "&id=" + uid;
 }
 switch (text) {
     case "venue": venfunc(); break;
     case "store": storfunc(); break;
     default: func();
-}   
+}
+function profile(name, col) {
+    document.location.href = "Portfolio.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
+    
+}

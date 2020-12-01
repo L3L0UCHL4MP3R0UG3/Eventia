@@ -1,9 +1,17 @@
 var loc = "all";
 
-var queryString = decodeURIComponent(window.location.search);
+/*var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
 var queries = queryString.split("=");
-document.getElementById("profile").text = queries[1];
+*/
+var queryString = decodeURIComponent(window.location.search).substring(1).split("&");
+
+var typ = queryString[0].split("=");
+var text = typ[1];
+var typ2 = queryString[1].split("=");
+var id = typ2[1];
+
+document.getElementById("profile").text = text;
 document.getElementById("test").text = "Location : "+loc;
 
 function al() {
@@ -39,30 +47,30 @@ var typeDisp;
 function plan() {
     type = "Planner";
     typeDisp = "Event Planners";
-    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location="+ loc + "&name=" + queries[1];
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location="+ loc + "&name=" + text+"&uid="+id;
 }
 function deco() {
     type = "Decorator";
     typeDisp = "Decorators";
-    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + queries[1];
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function cat() {
     type = "Caterer";
     typeDisp = "Caterers";
-    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + queries[1];
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function photo() {
     type = "Photographer";
     typeDisp = "Photographers";
-    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + queries[1];
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function venue() {
     type = "venue";
     typeDisp = "Venues";
-    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + queries[1];
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function stor() {
     type = "store";
     typeDisp = "Stores";
-    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + queries[1];
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
