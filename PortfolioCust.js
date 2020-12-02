@@ -1,4 +1,5 @@
 // JavaScript source code
+// JavaScript source code
 var queryString = decodeURIComponent(window.location.search).substring(1).split("&");
 var status = "non";
 var typ = queryString[0].split("=");
@@ -46,19 +47,19 @@ var listRef = storageRef.child(id);
 // Find all the prefixes and items.
 listRef.listAll().then(function (res) {
     var arr = [];
-    
+
     res.items.forEach(function (imageRef) {
         // All the items under listRef.
         arr.push(imageRef);
-        
-        
+
+
     });
     //RENDER IMAGE
     console.log(arr);
     console.log(arr.length);
     var i;
     for (i = 0; i < arr.length;) {
-        
+
         const elem = document.createElement('div');
         elem.className = "w3-row";
         elem.style = "margin-bottom:128px display:flex align-items: stretch align-content: flex-start margin-start:7px padding: 0 6px";
@@ -69,15 +70,14 @@ listRef.listAll().then(function (res) {
             elem2.className = "w3-third";
             elem2.style = "padding: 0 4px";
             const img1 = document.createElement('img');
-            
+
             arr[i].getDownloadURL().then(function (url) {
                 console.log(url);
                 img1.src = url;
-                
+
             });
             img1.style = "width:100%";
-            
-            //img1.addEventListener("click", onClick(img1.src));
+
             elem2.append(img1);
             elem.append(elem2);
             ++i;
@@ -85,32 +85,13 @@ listRef.listAll().then(function (res) {
         }
         document.body.appendChild(elem);
     }
-    
+
 }).catch(function (error) {
     // Uh-oh, an error occurred!
     console.log(error);
 });
 
-// Add image 
-var fileBtn = document.getElementById('fileBtn');
-var uploader = document.getElementById('uploader');
-fileBtn.addEventListener('change', function (e) {
-    var file = e.target.files[0];
-    var storageRef2 = storage.ref(id+"/" + file.name);
-    var task = storageRef2.put(file);
-    task.on('state_changed', function progress(snapshot) {
-        var per = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        uploader.value = per;
-    },
-        function error(err) {
-            console.log(err);
-        },
-        function complete() {
-            //alert("Image uploaded");
-            
-            location.reload();
-        });
-});
+
 
 // Open and close sidebar
 function w3_open() {

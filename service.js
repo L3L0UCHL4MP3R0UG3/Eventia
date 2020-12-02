@@ -421,7 +421,7 @@ function func() {
                         btn2.innerHTML = "View";
                         const j = userRef[i];
                         btn2.addEventListener('click', function () {
-                            document.location.href = "Portfolio.html" + "?name=" + n + "&id=" + j + "&type=" + "serv_user" + "&uid=" + uid;
+                            document.location.href = "reviewspage.html" + "?name=" + n + "&id=" + j + "&type=" + "serv_user" + "&uid=" + uid;
                         });
                         btn.append(btn2);
                         cap.append(h);
@@ -511,6 +511,6 @@ switch (text) {
     default: func();
 }
 function profile(name, col) {
-    document.location.href = "Portfolio.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
+    document.location.href = "portfolioCust.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
     
 }

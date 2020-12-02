@@ -14,10 +14,10 @@
         transition: 0.3s
     }
 img {
-    margin-bottom: -7px;
+    margin-bottom: 7px;
     cursor: pointer;
     flex-wrap: wrap;
-    height: 650px;
+    height: 450px;
     vertical-align: middle;
 }
     img:hover {

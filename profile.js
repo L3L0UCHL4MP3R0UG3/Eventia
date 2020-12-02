@@ -23,7 +23,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
-db.collection("serv_user").doc(id).get().then(function (doc) {
+/*db.collection("serv_user").doc(id).get().then(function (doc) {
     l = doc.data().like;
     const like = document.getElementById("like");
     like.innerText = "Like : " + l;
@@ -31,7 +31,7 @@ db.collection("serv_user").doc(id).get().then(function (doc) {
     const dlike = document.getElementById("dlike");
     dlike.innerHTML = "Dislike : " + dl;
 })
-
+*/
 function postrev() {
     var rdat = new Date();
 
@@ -49,7 +49,7 @@ function postrev() {
     prof.append(tim);
     document.body.appendChild(prof);
 }
-function like() {
+/*function like() {
 
     l += 1;
     const like = document.getElementById("like");
@@ -61,7 +61,7 @@ function dislike() {
     const dlike = document.getElementById("dlike");
     dlike.innerHTML = "Dislike : " + dl;
     alert(text + " disliked your profile.")
-}
+}*/
 var docref = db.collection(type).doc(id);
 
 docref.get().then(function (doc) {
@@ -74,7 +74,7 @@ docref.get().then(function (doc) {
 })
 
 //IF REVIEW AND LIKE/DISLIKE STATUS EXISTS
-
+/*
 db.collection("review").where("uid", "==", uid).where("sid", "==", id)
     .onSnapshot(function (querysnapshot) {
         var dat = [];
@@ -94,7 +94,7 @@ db.collection("review").where("uid", "==", uid).where("sid", "==", id)
         for (i = 0; i < dat.length; ++i) {
             status = dat[i].data().status;
         }
-    });
+    });*/
 db.collection("serv_user").doc(id).collection("review").get().then(function (querySnapshot) {
     var dat = [];
     querySnapshot.forEach(function (doc) {
@@ -119,6 +119,7 @@ db.collection("serv_user").doc(id).collection("review").get().then(function (que
             document.body.appendChild(prof);
         }
 });
+/*
 if (status == "like") {
     const like = document.getElementById("like");
     like.style.backgroundColor = 'Green';
@@ -126,4 +127,4 @@ if (status == "like") {
 }
 if (status == "dislike") {
     document.getElementById("dlike").style.backgroundColor='Red';
-}
+}*/
