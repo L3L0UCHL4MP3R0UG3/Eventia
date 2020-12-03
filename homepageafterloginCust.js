@@ -1,3 +1,4 @@
+// JavaScript source code
 var loc = "all";
 
 /*var queryString = decodeURIComponent(window.location.search);
@@ -12,7 +13,7 @@ var typ2 = queryString[1].split("=");
 var id = typ2[1];
 
 document.getElementById("profile").text = text;
-document.getElementById("test").text = "Location : "+loc;
+document.getElementById("test").text = "Location : " + loc;
 
 function al() {
     loc = "all";
@@ -47,33 +48,33 @@ var typeDisp;
 function plan() {
     type = "Planner";
     typeDisp = "Event Planners";
-    document.location.href = "service2.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location="+ loc + "&name=" + text+"&uid="+id;
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function deco() {
     type = "Decorator";
     typeDisp = "Decorators";
-    document.location.href = "service2.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function cat() {
     type = "Caterer";
     typeDisp = "Caterers";
-    document.location.href = "service2.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function photo() {
     type = "Photographer";
     typeDisp = "Photographers";
-    document.location.href = "service2.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function venue() {
     type = "venue";
     typeDisp = "Venues";
-    document.location.href = "service2.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function stor() {
     type = "store";
     typeDisp = "Stores";
-    document.location.href = "service2.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
+    document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
 function myProfile() {
-    document.location.href = "Myprofile.html" + "?name=" + text + "&id=" + id + "&type=" + "serv_user" + "&uid=" +id;
+    document.location.href = "Myprofile.html" + "?name=" + text + "&id=" + id + "&type=" + "serv_user" + "&uid=" + id;
 }

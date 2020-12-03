@@ -12,7 +12,7 @@ var n = name2[1];
 var id = queryString[4].split("=");
 var uid = id[1];
 
-document.getElementById("test").text = "Location : "+l;
+document.getElementById("test").text = "Location : " + l;
 var firebaseConfig = {
     apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
     authDomain: "pbl3-d918e.firebaseapp.com",
@@ -86,7 +86,7 @@ function venfunc() {
                         btn2.addEventListener("click", function () {
                             console.log(i);
                             console.log(j);
-                           profile(j, "venw_vendr");
+                            profile(j, "venw_vendr");
                         });
                         btn.append(btn2);
                         cap.append(h);
@@ -159,7 +159,7 @@ function venfunc() {
                         cap.append(h);
                         cap.append(hi);
                         cap.append(ji);
-                        
+
                         cap.append(pi);
                         cap.append(btn);
                         thum.append(img1);
@@ -444,11 +444,11 @@ function func() {
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 function al() {
     l = "all";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n+"&id="+uid;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function dlh() {
     l = "Delhi";
-    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n+"&id=" + uid;
+    document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function noida() {
     l = "Noida";
@@ -469,7 +469,7 @@ function gur() {
 function gaz() {
     l = "Gaziabad";
     document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
-    
+
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 function plan() {
@@ -503,7 +503,7 @@ function stor() {
     document.location.href = "service.html" + "?type=" + text + "&typeDisp=" + t + "&location=" + l + "&name=" + n + "&id=" + uid;
 }
 function home() {
-    document.location.href = "homepageafterloginCust.html" + "?profile=" + n + "&id=" + uid;
+    document.location.href = "homepageafterlogin.html" + "?profile=" + n + "&id=" + uid;
 }
 switch (text) {
     case "venue": venfunc(); break;
@@ -512,5 +512,5 @@ switch (text) {
 }
 function profile(name, col) {
     document.location.href = "portfolioCust.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
-    
+
 }
