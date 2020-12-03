@@ -32,36 +32,90 @@ var db = firebase.firestore();
     dlike.innerHTML = "Dislike : " + dl;
 })
 */
+const contM = document.createElement('div');
+contM.className = "container";
+const cont = document.createElement('div');
+cont.className = "tab-pane fade active show";
+cont.role = "tabpanel";
+const prof = document.createElement('div');
+prof.className = 'bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews';
+const head = document.createElement('h5');
+head.className = 'mb-1';
+head.innerHTML = "All Reviews";
+prof.append(head);
 function postrev() {
     var rdat = new Date();
 
-    const review = document.getElementById("review").value;
-    const prof = document.createElement('div');
-    prof.className = 'block';
-    const revname = document.createElement('h4');
+    const review = document.getElementById("review");
+
+    db.collection("serv_user").doc(id).collection("review").add({
+        name: text,
+        review: review.value,
+        dt: rdat.toLocaleString()
+    })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
+
+
+    const nReview = document.createElement('div');
+    nReview.className = 'reviews-members pt-4 pb-4';
+    const med = document.createElement('div');
+    med.className = 'media';
+    const avt = document.createElement('img');
+    avt.className = 'mr-3 rounded-pill';
+    // avt.src = "http://bootdey.com/img/Content/avatar/avatar1.png";
+    avt.src = "images/user.jpg";
+    const revBody = document.createElement('div');
+    revBody.className = 'media-body';
+    const memHead = document.createElement('div');
+    memHead.className = 'reviews-members-header';
+    const revname = document.createElement('h6');
+    revname.className = 'mb-1';
     revname.innerHTML = text;
+    const tim = document.createElement('p');
+    tim.className = 'text-gray';
+    const memBody = document.createElement('div');
+    memBody.className = 'reviews-members-body';
     const rev = document.createElement('p');
-    rev.innerHTML = review;
-    const tim = document.createElement('h6');
+    rev.innerHTML = review.value;
     tim.innerHTML = rdat.toLocaleString();
-    prof.append(revname);
-    prof.append(rev);
-    prof.append(tim);
-    document.body.appendChild(prof);
+    const sep = document.createElement('divider');
+    sep.role = 'separator';
+
+    
+    memHead.append(revname);
+    memBody.append(rev);
+    memHead.append(tim);
+    revBody.append(memHead);
+    revBody.append(memBody);
+    med.append(avt);
+    med.append(revBody);
+    nReview.append(med);
+    prof.append(nReview);
+    prof.append(sep);
+    cont.append(prof);
+    contM.append(cont);
+    document.body.appendChild(contM);
+
+    review.value = '';
 }
-/*function like() {
+function like(btn) {
 
     l += 1;
-    const like = document.getElementById("like");
-    like.innerText = "Like : "+l;
+    //const like = document.getElementById("like");
+    btn.innerText = "Like : "+l;
     alert(text + " liked your profile.")
 }
-function dislike() {
+function dislike(btn) {
     dl += 1;
-    const dlike = document.getElementById("dlike");
-    dlike.innerHTML = "Dislike : " + dl;
+    //const dlike = document.getElementById("dlike");
+    btn.innerHTML = "Dislike : " + dl;
     alert(text + " disliked your profile.")
-}*/
+}
 var docref = db.collection(type).doc(id);
 
 docref.get().then(function (doc) {
@@ -97,26 +151,57 @@ db.collection("review").where("uid", "==", uid).where("sid", "==", id)
     });*/
 db.collection("serv_user").doc(id).collection("review").get().then(function (querySnapshot) {
     var dat = [];
+    
     querySnapshot.forEach(function (doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
         dat.push(doc.data());
     });
-
+   
     
         for (i = 0; i < dat.length; ++i) {
-            const prof = document.createElement('div');
-            prof.className = 'block';
-            const revname = document.createElement('h4');
+            
+
+            const nReview = document.createElement('div');
+            nReview.className = 'reviews-members pt-4 pb-4';
+            const med = document.createElement('div');
+            med.className = 'media';
+            const avt = document.createElement('img');
+            avt.className = 'mr-3 rounded-pill';
+            // avt.src = "http://bootdey.com/img/Content/avatar/avatar1.png";
+            avt.src = "images/user.jpg";
+            const revBody = document.createElement('div');
+            revBody.className = 'media-body';
+            const memHead = document.createElement('div');
+            memHead.className = 'reviews-members-header';
+            const revname = document.createElement('h6');
+            revname.className = 'mb-1';
             revname.innerHTML = dat[i].name;
+            const tim = document.createElement('p');
+            tim.className = 'text-gray';
+            const memBody = document.createElement('div');
+            memBody.className = 'reviews-members-body';
             const rev = document.createElement('p');
             rev.innerHTML = dat[i].review;
-            const tim = document.createElement('h6');
             tim.innerHTML = dat[i].dt;
-            prof.append(revname);
-            prof.append(rev);
-            prof.append(tim);
-            document.body.appendChild(prof);
+            const sep = document.createElement('div');
+            sep.className = 'divider';
+            sep.role = 'separator';
+
+            memHead.append(revname);
+            memBody.append(rev);
+            memHead.append(tim);
+            revBody.append(memHead);
+            revBody.append(memBody);
+            med.append(avt);
+            med.append(revBody);
+            nReview.append(med);
+            prof.append(nReview);
+            prof.append(sep);
+            cont.append(prof);
+            contM.append(cont);
+            document.body.appendChild(contM);
+            
         }
 });
 /*

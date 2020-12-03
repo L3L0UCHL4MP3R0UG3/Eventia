@@ -7,8 +7,7 @@ var typ2 = queryString[1].split("=");
 var id = typ2[1];
 var typ3 = queryString[2].split("=");
 var type = typ3[1];
-var typ4 = queryString[3].split("=");
-var uid = typ4[1];
+
 var firebaseConfig = {
     apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
     authDomain: "pbl3-d918e.firebaseapp.com",
@@ -33,7 +32,7 @@ docref.get().then(function (doc) {
     const name = document.getElementById("name");
     const con = document.getElementById("cont");
     const loc = document.getElementById("loc");
-    name.innerHTML = doc.data().name;
+    name.innerHTML = text;
     con.innerHTML = doc.data().mail_ph;
     loc.innerHTML = doc.data().location;
 });
@@ -56,34 +55,42 @@ listRef.listAll().then(function (res) {
     //RENDER IMAGE
     console.log(arr);
     console.log(arr.length);
-    var i;
-    for (i = 0; i < arr.length;) {
-        
-        const elem = document.createElement('div');
-        elem.className = "w3-row";
-        elem.style = "margin-bottom:128px display:flex align-items: stretch align-content: flex-start margin-start:7px padding: 0 6px";
-        var j;
-        for (j = 0; j < 3; ++j) {
-            if (i >= arr.length) break;
-            const elem2 = document.createElement('div');
-            elem2.className = "w3-third";
-            elem2.style = "padding: 0 4px";
-            const img1 = document.createElement('img');
-            
-            arr[i].getDownloadURL().then(function (url) {
-                console.log(url);
-                img1.src = url;
-                
-            });
-            img1.style = "width:100%";
-            
-            //img1.addEventListener("click", onClick(img1.src));
-            elem2.append(img1);
-            elem.append(elem2);
-            ++i;
-            console.log(elem);
+    if (arr.length == 0) {
+        const nodat = document.createElement('h3');
+        nodat.innerHTML = "No images";
+        nodat.style = "text-align:center";
+        document.body.appendChild(nodat);
+    }
+    else {
+        var i;
+        for (i = 0; i < arr.length;) {
+
+            const elem = document.createElement('div');
+            elem.className = "w3-row";
+            elem.style = "margin-bottom:128px display:flex align-items: stretch align-content: flex-start margin-start:7px padding: 0 6px";
+            var j;
+            for (j = 0; j < 3; ++j) {
+                if (i >= arr.length) break;
+                const elem2 = document.createElement('div');
+                elem2.className = "w3-third";
+                elem2.style = "padding: 0 4px";
+                const img1 = document.createElement('img');
+
+                arr[i].getDownloadURL().then(function (url) {
+                    console.log(url);
+                    img1.src = url;
+
+                });
+                img1.style = "width:100%";
+
+                //img1.addEventListener("click", onClick(img1.src));
+                elem2.append(img1);
+                elem.append(elem2);
+                ++i;
+                console.log(elem);
+            }
+            document.body.appendChild(elem);
         }
-        document.body.appendChild(elem);
     }
     
 }).catch(function (error) {

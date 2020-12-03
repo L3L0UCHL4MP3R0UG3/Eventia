@@ -74,3 +74,6 @@ function stor() {
     typeDisp = "Stores";
     document.location.href = "service.html" + "?type=" + type + "&typeDisp=" + typeDisp + "&location=" + loc + "&name=" + text + "&uid=" + id;
 }
+function myProfile() {
+    document.location.href = "Myprofile.html" + "?name=" + text + "&id=" + id + "&type=" + "serv_user" + "&uid=" +id;
+}

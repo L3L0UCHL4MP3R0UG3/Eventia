@@ -31,7 +31,7 @@ function upload() {
             location: locationText
         }).then(function (docRef) {
             let iD = docRef.id;
-            document.location.href = "homepageafterlogin.html" + "?profile=" + nameText + "&id=" + iD;
+            document.location.href = "homepageafterloginCust.html" + "?profile=" + nameText + "&id=" + iD;
         })
         .catch(function (error) {
             console.log("ERROR : ", error);
@@ -51,7 +51,7 @@ function auth() {
                 if (doc.data().password == pass) {
                     let iD = doc.id;
                     let name = doc.data().name;
-                    document.location.href = "homepageafterlogin.html" + "?profile=" + name + "&id=" + iD;
+                    document.location.href = "homepageafterloginCust.html" + "?profile=" + name + "&id=" + iD;
                 }
                 else
                     alert("Incorrect credentials!");

@@ -1,0 +1,171 @@
+body{
+	font-family: poppins;
+	 line-height: 1.8;
+	 
+
+}
+header .carousel-inner .item{
+	height: 100vh;
+}
+.navbar-inverse {
+	background-color: transparent; /*-webkit-linear-gradient(left, #8B008B, #B19CD9);*/
+	border-color: transparent;
+}
+
+	.navbar-inverse .navbar-brand {
+		color: #fff;
+		font-size: 40px;
+		padding: 40px 15px;
+		font-weight: 900;
+	}
+
+.nav.navbar-nav.navbar-right {
+	margin: 25px 0;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #fff;
+	text-transform: uppercase;
+}
+#carousel-example-generic{
+	margin:0;
+}
+.banner{
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100vh;
+	
+}
+.carousel-caption{
+	padding-bottom: 100px;
+	font-family:poppins;
+}
+.carousel-caption h2{
+	font-size: 70px;
+	text-transform: lowercase;
+	font-weight: bold;
+}
+.carousel-caption h2 span{
+	color:#8032D9;
+}
+.carousel-caption h3{
+	color: #fff;
+
+}
+.carousel-caption a{
+	background: -webkit-linear-gradient(left,#B19CD9, #8B008B);
+	padding: 15px, 30px;
+	font-size: 25px;
+	display: inline-block;
+	margin-top: 15px;
+	color: #fff;
+    border-radius: 15px;
+}
+.carousel-control.right{
+	background-image: none;
+}
+.carousel-control.left{
+	background-image: none;
+}
+.carousel-indicators .active{
+	background-color: #8032D9;
+	border-color: #8032D9;
+
+}
+   h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+  
+  .container-fluid {
+    padding: 60px 50px;
+  }
+
+  .logo-small {
+    color: #8B008B;
+    font-size: 50px;
+  }
+  .logo {
+    color: #8B008B;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+
+
+
+
+  
+
+
+
+/*responsive css */
+
+
+	
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+	.carousel-caption{
+		padding-bottom: 350px;
+	}
+	.carousel-caption h2{
+		font-size: 50px;
+	}
+
+
+}
+@media only screen and (max-width: 767px){
+	.navbar-inverse .navbar-brand{
+		font-size: 30px;
+		padding: 20px 15px;
+	}
+	.navbar-collapse{
+		background: rgba(0,0,0,0.6);
+	}
+	.carousel.caption{
+		padding-bottom: 120px;
+	}
+	.carousel-caption h2{
+		font-size: 25px;
+	}
+	.carousel-caption h3{
+		font-size: 18px;
+	}
+	.carousel-caption a{
+		padding: 10px 25px;
+	}
+
+}

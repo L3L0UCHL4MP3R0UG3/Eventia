@@ -31,7 +31,7 @@ function upload() {
             address: addressText
         }).then(function (docRef) {
             console.log("Document written with ID : ", docRef.id);
-            document.location.href = "homepagebasic.html";
+            document.location.href = "Portfolio.html" + "?profile=" + nameText + "&id=" + docRef.id + "&type=" + "vendor";
         })
         .catch(function (error) {
             console.log("ERROR : ", error);
@@ -46,7 +46,7 @@ function auth() {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 if (doc.data().password == pass) {
-                    document.location.href = "homepagebasic.html";
+                    document.location.href = "Portfolio.html" + "?profile=" + doc.data().name + "&id=" + doc.id + "&type=" + "vendor";
                 }
                 else
                     console.log("Incorrect credentials!");
@@ -54,11 +54,4 @@ function auth() {
         }).catch(function (error) {
             console.log("Error : ", error);
         });
-}
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-        currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
 }
