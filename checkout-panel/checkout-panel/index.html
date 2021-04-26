@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+<meta name="robots" content="noindex,follow" />
+</head>
+<body>
+
+  <div class="checkout-panel">
+    <div class="panel-body">
+      <h2 class="title">Checkout</h2>
+      <h3 class="title">Please enter your deliver address</h3>
+
+     
+
+      <div class="input-fields">
+        <div class="column-1">
+          <label for="add1">Address line 1</label>
+          <input type="text" id="ad1" />
+
+          
+            <div>
+              <label for="add2">Address line 2</label>
+              <input type="text" id="ad2" />
+            </div>
+
+            
+          
+
+        </div>
+        <div class="column-2">
+          <div>
+            <label for="city">City</label>
+            <input type="text" id="city" />
+          </div>
+          <div>
+            <label for="state">State</label>
+            <input type="text" id="state" />
+          </div>
+          </div>
+      </div>
+      <div style="color: #2e2e2e;">
+        <label for="ins" style="color: #a7a7a7;">Additional Intructions</label>
+        <input type="text" id="ins" style="height: 200px;" />
+      </div>
+    </div>
+
+    <div class="panel-footer">
+      <button class="btn back-btn" onclick="cart()">Back</button>
+      <button class="btn next-btn" onclick="home()">Place order</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -78,3 +78,18 @@ w3-row-padding img {
         max-width: 100%;
     }
 }
+.block-div {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 100;
+    color: whitesmoke;
+    background-color: #782db6;
+    height: 100%;
+}
+.btn-default {
+    background-color: lightpink;
+}
+
+    .btn-default:hover {
+        background-color: #B19CD9;
+    }

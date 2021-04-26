@@ -213,3 +213,6 @@ if (status == "like") {
 if (status == "dislike") {
     document.getElementById("dlike").style.backgroundColor='Red';
 }*/
+function message(){
+    document.location.href="C:/Users/liudm/OneDrive/Documents/GitHub/Eventia/chat2.html";
+}

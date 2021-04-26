@@ -511,6 +511,9 @@ switch (text) {
     default: func();
 }
 function profile(name, col) {
-    document.location.href = "portfolioCust.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
+    if(col=="vendor")
+    document.location.href = "portfolioCustStore.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
+    else
+    document.location.href = "PortfolioCust.html" + "?name=" + n + "&id=" + name + "&type=" + col + "&uid=" + uid;
     
 }
