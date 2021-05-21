@@ -11,15 +11,7 @@ var typ3 = queryString[2].split("=");
 var type = typ3[1];
 var typ4 = queryString[3].split("=");
 var uid = typ4[1];
-var firebaseConfig = {
-    apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
-    authDomain: "pbl3-d918e.firebaseapp.com",
-    databaseURL: "https://pbl3-d918e.firebaseio.com",
-    projectId: "pbl3-d918e",
-    storageBucket: "pbl3-d918e.appspot.com",
-    messagingSenderId: "842287930835",
-    appId: "1:842287930835:web:f5eb30f861e64ec78a6326"
-};
+//Firebase configurations
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
