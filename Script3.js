@@ -3,15 +3,9 @@ document.querySelector('.img-btn').addEventListener('click', function () {
     document.querySelector('.cont').classList.toggle('s-signup')
 }
 );
-var firebaseConfig = {
-    apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
-    authDomain: "pbl3-d918e.firebaseapp.com",
-    databaseURL: "https://pbl3-d918e.firebaseio.com",
-    projectId: "pbl3-d918e",
-    storageBucket: "pbl3-d918e.appspot.com",
-    messagingSenderId: "842287930835",
-    appId: "1:842287930835:web:f5eb30f861e64ec78a6326"
-};
+
+//Firebase configurations
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
