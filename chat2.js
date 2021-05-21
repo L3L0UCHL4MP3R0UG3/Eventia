@@ -4,15 +4,7 @@ $( '.friend-drawer--onhover' ).on( 'click',  function() {
 
 });
 // Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyCHzivqlQ-OGvfSGszddzBth3PvZtgoAF4",
-  authDomain: "pbl3-d918e.firebaseapp.com",
-  databaseURL: "https://pbl3-d918e.firebaseio.com",
-  projectId: "pbl3-d918e",
-  storageBucket: "pbl3-d918e.appspot.com",
-  messagingSenderId: "842287930835",
-  appId: "1:842287930835:web:f5eb30f861e64ec78a6326"
-};
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
